@@ -1,5 +1,6 @@
 ﻿using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.ContentApi.OAuth;
+using EPiServer.ServiceApi.Owin;
 using EPiServer.ServiceLocation;
 using Foundation;
 using Foundation.Cms.Extensions;
@@ -30,15 +31,15 @@ namespace Foundation
         public void Configuration(IAppBuilder app)
         {
             app.ConfigureAuthentication(_connectionStringHandler.Commerce.Name);
-            app.UseContentApiIdentityOAuthAuthorization<ApplicationUserManager<SiteUser>, SiteUser>(new ContentApiOAuthOptions()
-            {
-                RequireSsl = false,
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(60)
-            });
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = "ApplicationCookie",
                 LoginPath = new PathString("/user")
+            });
+            app.UseServiceApiIdentityTokenAuthorization<ApplicationUserManager<SiteUser>, SiteUser>(new ServiceApiTokenAuthorizationOptions()
+            {
+                RequireSsl = false,
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(60)
             });
         }
     }
