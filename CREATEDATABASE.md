@@ -1,0 +1,3 @@
+https://www.chrisvafiadis.com/optimizely-foundation-on-a-mac-2/
+Need docker
+After running setup.sh file, need to run build/SqlScripts/FoundationConfigurationSchema.sql and build/SqlScripts/UniqueCouponSchema.sql in the Commerce database manually as mssql-tools do not exist in the azure-sql-edge docker image ( currently, cannot use mssql/server:2019 image as it does not support arm64 architecture ) 
