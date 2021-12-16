@@ -31,6 +31,13 @@ namespace Foundation
         public void Configuration(IAppBuilder app)
         {
             app.ConfigureAuthentication(_connectionStringHandler.Commerce.Name);
+
+            // FIXME cuond Have to comment because this conflict with UseServiceApiIdentityTokenAuthorization
+            // app.UseContentApiIdentityOAuthAuthorization<ApplicationUserManager<SiteUser>, SiteUser>(new ContentApiOAuthOptions()
+            // {
+            //     RequireSsl = false,
+            //     AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(60)
+            // });
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = "ApplicationCookie",
