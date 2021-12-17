@@ -1524,6 +1524,7 @@
     <Compile Include="Find\Initialize.cs" />
     <Compile Include="Find\SearchExtensions.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Infrastructure\ContentDeliveryApi\CustomContentFilter.cs" />
     <Compile Include="Infrastructure\Display\DisplayResolution.cs" />
     <Compile Include="Infrastructure\Display\DisplayResolutionBase.cs" />
     <Compile Include="Infrastructure\Display\FeaturesViewEngine.cs" />
