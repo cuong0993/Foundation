@@ -129,6 +129,7 @@ namespace Foundation.Features.CatalogContent.Product
         [Display(Name = "Manufacturer parts warranty description", GroupName = Infrastructure.TabNames.Manufacturer, Order = 10)]
         public virtual string ManufacturerPartsWarrantyDescription { get; set; }
 
+        [Required]
         [BackingType(typeof(PropertyString))]
         [Display(Name = "Model", GroupName = Infrastructure.TabNames.Manufacturer, Order = 15)]
         public virtual string Model { get; set; }
