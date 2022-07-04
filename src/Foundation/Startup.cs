@@ -8,6 +8,7 @@ using EPiServer.Data;
 using EPiServer.Framework.Web.Resources;
 using EPiServer.Labs.BlockEnhancements;
 using EPiServer.OpenIDConnect;
+using EPiServer.ServiceApi;
 using EPiServer.ServiceLocation;
 using EPiServer.Shell.Modules;
 using EPiServer.Web;
@@ -150,6 +151,7 @@ namespace Foundation
                         ContentDeliveryApiOptionsDefaults.Scope,
                         ContentManagementApiOptionsDefaults.Scope,
                         ContentDefinitionsApiOptionsDefaults.Scope,
+                        ServiceApiOptionsDefaults.Scope,
                     }
                 };
 
