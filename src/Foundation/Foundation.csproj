@@ -2,6 +2,7 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<VersionPrefix>2021.04.1.0</VersionPrefix>
+		<ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
 		<VersionSuffix></VersionSuffix>
 		<PackageVersion Condition=" '$(PackageVersion)' == '' ">$(VersionPrefix)$(VersionSuffix)</PackageVersion>
 	</PropertyGroup>
