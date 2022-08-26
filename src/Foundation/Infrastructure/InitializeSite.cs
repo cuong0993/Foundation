@@ -6,7 +6,6 @@ using EPiServer.Commerce.Marketing.Internal;
 using EPiServer.Commerce.Order;
 using EPiServer.Core;
 using EPiServer.Find.ClientConventions;
-using EPiServer.Find.Commerce;
 using EPiServer.Find.Framework;
 using EPiServer.Find.UnifiedSearch;
 using EPiServer.Framework;

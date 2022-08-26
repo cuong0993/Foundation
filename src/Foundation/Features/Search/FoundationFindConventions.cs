@@ -3,7 +3,6 @@ using EPiServer.Find;
 using EPiServer.Find.ClientConventions;
 using EPiServer.Find.Cms;
 using EPiServer.Find.Cms.Conventions;
-using EPiServer.Find.Commerce;
 using EPiServer.Find.Framework;
 using Foundation.Features.CatalogContent.Product;
 using Foundation.Features.CatalogContent.Variation;

@@ -7,7 +7,6 @@ using EPiServer.Find;
 using EPiServer.Find.Api;
 using EPiServer.Find.Api.Querying;
 using EPiServer.Find.Cms;
-using EPiServer.Find.Commerce;
 using EPiServer.Framework.Localization;
 using EPiServer.Framework.Modules;
 using EPiServer.Logging;

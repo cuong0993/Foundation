@@ -4,8 +4,6 @@ using EPiServer.Commerce.Catalog.Linking;
 using EPiServer.Core;
 using EPiServer.Find;
 using EPiServer.Find.Cms;
-using EPiServer.Find.Commerce;
-using EPiServer.Find.Commerce.Services;
 using Mediachase.Commerce.Catalog;
 using System;
 using System.Collections.Generic;
@@ -22,7 +20,7 @@ namespace Foundation.Features.Search
         public FoundationCatalogContentEventListener(ReferenceConverter referenceConverter,
            IContentRepository contentRepository,
            IClient client,
-           CatalogEventIndexer indexer,
+          CatalogEventIndexer indexer,
            CatalogContentClientConventions catalogContentClientConventions,
            PriceIndexing priceIndexing,
            IRelationRepository relationRepository,

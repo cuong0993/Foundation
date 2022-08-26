@@ -3,7 +3,6 @@ using EPiServer.Commerce.Catalog.ContentTypes;
 using EPiServer.Commerce.Catalog.Linking;
 using EPiServer.Commerce.SpecializedProperties;
 using EPiServer.Core;
-using EPiServer.Find.Commerce.Services.Internal;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
 using Foundation.Infrastructure.Cms;
