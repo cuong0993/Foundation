@@ -63,10 +63,10 @@ namespace Foundation.Infrastructure.Commerce.Extensions
             DataContext.Current = new DataContext(bafConnectionString);
             ModuleManager.InitializeActiveModules();
             var fields = DataContext.Current.MetaModel.MetaClasses[ContactEntity.ClassName].Fields;
-            if (fields.Contains("UserRole"))
-            {
-                return;
-            }
+            //if (fields.Contains("UserRole"))
+            //{
+            //    return;
+            //}
 
             using (var scope = DataContext.Current.MetaModel.BeginEdit(MetaClassManagerEditScope.SystemOwner, AccessLevel.System))
             {
@@ -77,42 +77,43 @@ namespace Foundation.Infrastructure.Commerce.Extensions
 
                 using (var builder = new MetaFieldBuilder(contactMetaClass))
                 {
-                    builder.CreateText("UserRole", "{Customer:UserRole}", true, 50, false);
-                    builder.CreateText("UserLocation", "{Customer:UserLocation}", true, 50, false);
-                    builder.CreateInteger("Points", "{Customer:Points}", true, 0);
-                    builder.CreateInteger("NumberOfOrders", "{Customer:NumberOfOrders}", true, 0);
-                    builder.CreateInteger("NumberOfReviews", "{Customer:NumberOfReviews}", true, 0);
-                    builder.CreateText("Tier", "{Customer:Tier}", true, 100, false);
-                    builder.CreateText("ElevatedRole", "{Customer:ElevatedRole}", true, 100, false);
-                    builder.CreateHtml("Bookmarks", "{Customer:Bookmarks}", true);
+                    //builder.CreateText("UserRole", "{Customer:UserRole}", true, 50, false);
+                                        builder.CreateDateTime("StartDate", "{Customer:StartDate}", true, false);
+                    //builder.CreateText("UserLocation", "{Customer:UserLocation}", true, 50, false);
+                    //builder.CreateInteger("Points", "{Customer:Points}", true, 0);
+                    //builder.CreateInteger("NumberOfOrders", "{Customer:NumberOfOrders}", true, 0);
+                    //builder.CreateInteger("NumberOfReviews", "{Customer:NumberOfReviews}", true, 0);
+                    //builder.CreateText("Tier", "{Customer:Tier}", true, 100, false);
+                    //builder.CreateText("ElevatedRole", "{Customer:ElevatedRole}", true, 100, false);
+                    //builder.CreateHtml("Bookmarks", "{Customer:Bookmarks}", true);
                     builder.SaveChanges();
                 }
 
-                var budgetClass = manager.CreateMetaClass("Budget", "{Customer:Budget}", "{Customer:Budget}", "cls_Budget", PrimaryKeyIdValueType.Integer);
-                ModuleManager.Activate(budgetClass, changeTrackingManifest);
-                using (var builder = new MetaFieldBuilder(budgetClass))
-                {
-                    builder.CreateDateTime("StartDate", "{Customer:StartDate}", true, false);
-                    builder.CreateDateTime("EndDate", "{Customer:EndDate}", true, false);
-                    builder.CreateCurrency("Amount", "{Customer:Amount}", true, 0, true);
-                    builder.CreateText("Currency", "{Customer:Currency}", true, 50, false);
-                    builder.CreateText("Status", "{Customer:Status}", true, 50, false);
-                    builder.CreateCurrency("SpentBudget", "{Customer:SpentBudget}", true, 0, true);
-                    builder.CreateText("PurchaserName", "{Customer:PurchaserName}", true, 50, false);
-                    builder.CreateCurrency("LockOrganizationAmount", "{Customer:LockOrganizationAmount}", true, 0, true);
-                    budgetClass.Fields[MetaClassManager.GetPrimaryKeyName(budgetClass.Name)].FriendlyName = "{GlobalMetaInfo:PrimaryKeyId}";
-                    var contactReference = builder.CreateReference("Contact", "{Customer:CreditCard_mf_Contact}", true, "Contact", false);
-                    contactReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayBlock, "InfoBlock");
-                    contactReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayText, "{Customer:Budget}");
-                    contactReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayOrder, "10000");
-                    var orgReference = builder.CreateReference("Organization", "{Customer:CreditCard_mf_Organization}", true, "Organization", false);
-                    orgReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayBlock, "InfoBlock");
-                    orgReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayText, "{Customer:Budget}");
-                    orgReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayOrder, "10000");
-                    builder.SaveChanges();
-                }
+                //var budgetClass = manager.CreateMetaClass("Budget", "{Customer:Budget}", "{Customer:Budget}", "cls_Budget", PrimaryKeyIdValueType.Integer);
+                //ModuleManager.Activate(budgetClass, changeTrackingManifest);
+                //using (var builder = new MetaFieldBuilder(budgetClass))
+                //{
+                //    builder.CreateDateTime("StartDate", "{Customer:StartDate}", true, false);
+                //    builder.CreateDateTime("EndDate", "{Customer:EndDate}", true, false);
+                //    builder.CreateCurrency("Amount", "{Customer:Amount}", true, 0, true);
+                //    builder.CreateText("Currency", "{Customer:Currency}", true, 50, false);
+                //    builder.CreateText("Status", "{Customer:Status}", true, 50, false);
+                //    builder.CreateCurrency("SpentBudget", "{Customer:SpentBudget}", true, 0, true);
+                //    builder.CreateText("PurchaserName", "{Customer:PurchaserName}", true, 50, false);
+                //    builder.CreateCurrency("LockOrganizationAmount", "{Customer:LockOrganizationAmount}", true, 0, true);
+                //    budgetClass.Fields[MetaClassManager.GetPrimaryKeyName(budgetClass.Name)].FriendlyName = "{GlobalMetaInfo:PrimaryKeyId}";
+                //    var contactReference = builder.CreateReference("Contact", "{Customer:CreditCard_mf_Contact}", true, "Contact", false);
+                //    contactReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayBlock, "InfoBlock");
+                //    contactReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayText, "{Customer:Budget}");
+                //    contactReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayOrder, "10000");
+                //    var orgReference = builder.CreateReference("Organization", "{Customer:CreditCard_mf_Organization}", true, "Organization", false);
+                //    orgReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayBlock, "InfoBlock");
+                //    orgReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayText, "{Customer:Budget}");
+                //    orgReference.Attributes.Add(McDataTypeAttribute.ReferenceDisplayOrder, "10000");
+                //    builder.SaveChanges();
+                //}
 
-                budgetClass.AddPermissions();
+                //budgetClass.AddPermissions();
                 scope.SaveChanges();
             }
 
