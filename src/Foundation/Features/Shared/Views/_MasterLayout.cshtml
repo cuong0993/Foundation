@@ -6,6 +6,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="text/javascript">
+        var zaius = window['zaius'] || (window['zaius'] = []); zaius.methods = ["initialize", "onload", "customer", "entity", "event", "subscribe", "unsubscribe", "consent", "identify", "anonymize", "dispatch"]; zaius.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); zaius.push(t); return zaius } }; (function () { for (var i = 0; i < zaius.methods.length; i++) { var method = zaius.methods[i]; zaius[method] = zaius.factory(method) } var e = document.createElement("script"); e.type = "text/javascript"; e.async = true; e.src = ("https:" === document.location.protocol ? "https://" : "http://") + "d1igp3oop3iho5.cloudfront.net/v2/8yZNr8Uj_eyfNNeiq0H_TQ/zaius-min.js"; var t = document.getElementsByTagName("script")[0]; t.parentNode.insertBefore(e, t) })();
+
+        // Edits to this script should only be made below this line.
+        //zaius.event('pageview');
+        zaius.subscribe({ list_id: 'newsletter', email: 'admin@example.com' });
+    </script>
 
     @Html.CanonicalLink()
     @if (Model.CurrentContent is EntryContentBase)

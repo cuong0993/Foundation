@@ -3,6 +3,7 @@ using EPiServer.Framework.Web;
 using Foundation.Features.Blocks.MenuItemBlock;
 using Foundation.Features.Home;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Optimizely.Labs.MarketingAutomationIntegration.ODP.Models;
 
 namespace Foundation.Features.Preview
 {
@@ -44,6 +45,10 @@ namespace Foundation.Features.Preview
             {
                 if (currentContent is MenuItemBlock) //handle exception while previewing menu item
                     return View("~/Features/Preview/Index.cshtml", model);
+                else if (currentContent is ODPListConsentFormBlock)
+                {
+                    return View("~/Views/Shared/ElementBlocks/ODPListConsentFormBlock.cshtml", currentContent as ODPListConsentFormBlock);
+                }
                 else
                 {
                     return new ViewResult
